@@ -1,12 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import boton from '../components/boton.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'boton',
+    component: boton
+  },
+  {
+    path: '/Home',
     name: 'Home',
     component: Home
   },

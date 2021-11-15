@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import boton from '../components/boton.vue'
+import teclado from '../components/teclado.vue'
+import pantalla from '../components/pantalla.vue'
+import calculadora from '../components/calculadora.vue'
 
 
 Vue.use(VueRouter)
@@ -9,9 +12,25 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'calculadora',
+    component: calculadora
+  },
+  {    
+    path: 'teclado',
+    name: 'teclado',
+    component: teclado
+  },
+  {
+    path: '/pantalla',
+    name: 'pantalla',
+    component: pantalla
+  },
+  {
+    path: '/boton',
     name: 'boton',
     component: boton
   },
+ 
   {
     path: '/Home',
     name: 'Home',

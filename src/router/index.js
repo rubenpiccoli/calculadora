@@ -5,18 +5,24 @@ import boton from '../components/boton.vue'
 import teclado from '../components/teclado.vue'
 import pantalla from '../components/pantalla.vue'
 import calculadora from '../components/calculadora.vue'
+import listado from '../components/listado.vue'
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: 'listado',
+    name: 'listado',
+    component: listado
+  },
+  {
+    path: 'calculadora',
     name: 'calculadora',
     component: calculadora
   },
   {    
-    path: 'teclado',
+    path: '/',
     name: 'teclado',
     component: teclado
   },
@@ -26,7 +32,7 @@ const routes = [
     component: pantalla
   },
   {
-    path: '/boton',
+    path: 'boton',
     name: 'boton',
     component: boton
   },

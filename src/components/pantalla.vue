@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-
+ 
 props:{
     operad1:{
       type:String,
@@ -32,15 +32,15 @@ props:{
 </script>
 <style>
 h5{
-    padding-top: 6px;
-    padding-right: 6px;
-    font-size: 13px;
+    padding-top: 3px;
+    padding-right: 3px;
+    font-size: 8px;
     text-align: right;
-    margin: 2px 2px 0px 2px;
+    margin: 2px 4px 0px 2px;
    
     background-color: #999999;
     color: #FFFFFF;
-    height:23px;
+    height:24px;
 }
 h3{
     padding-top: 3px;

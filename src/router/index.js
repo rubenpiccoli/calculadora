@@ -17,17 +17,17 @@ const routes = [
     component: listado
   },
   {
-    path: 'calculadora',
+    path: '/',
     name: 'calculadora',
     component: calculadora
   },
   {    
-    path: '/',
+    path: 'teclado',
     name: 'teclado',
     component: teclado
   },
   {
-    path: '/pantalla',
+    path: 'pantalla',
     name: 'pantalla',
     component: pantalla
   },

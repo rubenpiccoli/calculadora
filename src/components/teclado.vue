@@ -1,14 +1,14 @@
 <template>
 
-<div id="calculadora">
+<div>
          
             
          
-         <div> 
+ 
              
-              <pantalla :operad1="operador1" :operad="operador" :operad2="operador2" :resultad="resultado"></pantalla>
+             <!-- <pantalla :operad1="operador1" :operad="operador" :operad2="operador2" :resultad="resultado"></pantalla>-->
           
-          </div>
+         
        
  <boton spanX=1 spanY=1 @value="valor"></boton>
    <div>
@@ -20,11 +20,11 @@
 </template>
 <script>
 import Boton from './boton.vue';
-import pantalla from './pantalla.vue';
+//import pantalla from './pantalla.vue';
 //import{ref} from 'vue'
 
 export default{
-  components: { pantalla, Boton },
+  components: { Boton },
     
 
     data(){
@@ -82,9 +82,9 @@ valor(value){this.val=value
                        return
 
                     }*/
-                    
+
               document.getElementById('igual').disabled=false;
-               
+               this.$store.commit('operador2', this.display);
                this.operador2=this.display
                console.log('operador2',this.operador2)
               
@@ -93,11 +93,12 @@ valor(value){this.val=value
                    this.operad=""
                   this.operador=""
                    this.display=""
+                   this.$store.commit('operador', this.val);
                    this.operador=this.val
                   console.log('operador', this.operador)
               }else{
                  
-             
+              this.$store.commit('operador1', this.display);
                this.operador1=this.display 
                console.log('operador1', this.operador1)
               }
@@ -105,8 +106,12 @@ valor(value){this.val=value
               
 },
 nuevocalculo:function(){
-               this.operador1=""
-               this.operador2=""
+                this.$store.commit('operador1', "");
+                this.$store.commit('operador2', "");
+                this.$store.commit('operador', "");
+                this.$store.commit('resultado', 0);
+                this.operador1=""
+                this.operador2=""
                 this.operador=""
                 this.resultado=0
                 this.noesnumero=null
@@ -122,18 +127,19 @@ calcular:function(){
    switch (this.operador) {
        case "+":
              this.resultado=Number(this.operador1)+Number(this.operador2);
+              this.$store.commit('resultado', this.resultado);
                 break ;
         case "-":
              this.resultado=Number(this.operador1)-Number(this.operador2);
-
+             this.$store.commit('resultado', this.resultado);
                 break ;
          case "*":
              this.resultado=Number(this.operador1)*Number(this.operador2);
-
+                this.$store.commit('resultado', this.resultado);
                 break ;
          case "/":
              this.resultado=Number(this.operador1)/Number(this.operador2);
-
+                this.$store.commit('resultado', this.resultado);
                 break ;
         default:
             
@@ -153,16 +159,11 @@ calcular:function(){
 
 </script>
 <style >
-#calculadora{
-     position: absolute; 
-     margin: 100px;  
-     background-color: rgb(133, 131, 131);
-     padding: 8px;
-}
+
 
 #nuevocalculo{
     background-color: forestgreen;
-    width: 100px;
+    width: 70px;
     align-content: center;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
    <div class="container">
            
-       {{this.$store.state.nuDisable}}
+       
         
             <div class="row">
                 <div class="col">
@@ -30,7 +30,7 @@
            <div class="row">
             <div class="col">
                <button  v-bind:style="{width: spanX * 45 + 'px' }" value="0" :disabled=this.$store.state.nuDisable @click="agregarTexto($event)">0</button>
-               <button  v-bind:style="{width: spanX * 92 + 'px' }" value="=" :disabled=this.$store.state.opDisable @click="agregarTexto($event)" id="igual">=</button>
+               <button  v-bind:style="{width: spanX * 90 + 'px' }" value="=" :disabled=this.$store.state.opDisable @click="agregarTexto($event)" id="igual">=</button>
                <button  v-bind:style="{width: spanX * 45 + 'px' }" value="/" :disabled=this.$store.state.opDisable @click="agregarTexto($event)">/</button>
             </div>
            </div>
@@ -63,7 +63,6 @@ export default{
                  display:"",
                  
                 
-                
         }
          
             
@@ -80,10 +79,13 @@ export default{
       }
     this.$emit('value', this.display);
     
+ },
  }
-}
-}
+
+
+} 
 </script>
+
 
 <style >
 
@@ -92,6 +94,7 @@ button {
    /* height: 45px;
     width: 45px;*/
     margin: 2px;
+    
     font-weight: bold;
 
 }
